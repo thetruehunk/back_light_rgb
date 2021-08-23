@@ -1,0 +1,119 @@
+{% args config %}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+                * {
+                        box-sizing: border-box;
+                        font-family: arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 1.45;
+                        text-align: center;
+                }
+
+                body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                }
+
+                h3 {
+                        font-size: 28px;
+                        color: #222;
+                }
+
+                .form_wr {
+                        background: #eee;
+                        border-radius: 20px;
+                        padding: 30px;
+                }
+
+                input {
+                        padding: 2px 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        height: 32px;
+                        width: 180px;
+                        text-align: left;
+                }
+
+                input[type=submit] {
+                        background-color: #4CAF50;
+                        border: none;
+                        color: white;
+                        cursor: pointer;
+                        padding: 5px 35px;
+                        height: 36px;
+                        width: auto;
+                }
+
+                input[type=number] {
+                        width: 180px;
+                }
+
+                .field {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                }
+
+                label {
+                        width: 150px;
+                        margin-right: 5px;
+                        text-align: left;
+                }
+        </style>
+
+        <title>Settings</title>
+</head>
+
+<body>
+        <div class="form_wr">
+                <div class="row">
+                        <a href="/"> [main]</a>
+                </div>
+                <div class="row">
+                        <h3>Module settings</h3>
+                        <form action="/set_config" method="GET">
+                                <div class="field">
+                                        <label for="ESSID">ESSID</label>
+                                        <input type="text" id="ESSID" name="ESSID" value={{config['ESSID']}}>
+                                </div>
+                                <div class="field">
+                                        <label for="PASSWORD">PASSWORD</label>
+                                        <input type="text" id="PASSWORD" name="PASSWORD" value={{config['PASSWORD']}}>
+                                </div>
+                                <div class="field">
+                                        <label for="AP-ESSID">AP-ESSID</label>
+                                        <input type="text" id="AP-ESSID" name="AP-ESSID" value={{config['AP-ESSID']}}>
+                                </div>
+                                <div class="field">
+                                        <label for="AP-PASSWORD">AP-PASSWORD</label>
+                                        <input type="text" id="AP-PASSWORD" name="AP-PASSWORD"
+                                                value={{config['AP-PASSWORD']}}>
+                                </div>
+                                <div class="field">
+                                        <label for="CHANNEL">CHANNEL</label>
+                                        <input type="number" id="CHANNEL" name="CHANNEL"
+                                                value={{config['CHANNEL']}}><br><br>
+                                </div>
+                                <div class="field">
+                                        <label for="WEB-LOGIN">WEB-LOGIN</label>
+                                        <input type="text" id="WEB-LOGIN" name="WEB-LOGIN"
+                                                value={{config['WEB-LOGIN']}}>
+                                </div>
+                                <div class="field">
+                                        <label for="WEB-PASSWORD">WEB-PASSWORD</label>
+                                        <input type="text" id="WEB-PASSWORD" name="WEB-PASSWORD"
+                                                value={{config['WEB-PASSWORD']}}><br><br>
+                                </div>
+                                <div>
+                                        <input type="submit" value="Submit">
+                                </div>
+                        </form>
+                </div>
+        </div>
+</body>
+
+</html>

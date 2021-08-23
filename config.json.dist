@@ -1,0 +1,11 @@
+{
+    "ESSID": "wifi",
+    "PASSWORD": "12345678",
+    "AP-ESSID": "back_light_rgb",
+    "AP-PASSWORD": "12345678",
+    "CHANNEL": 1,
+    "WEB-LOGIN": "rgb",
+    "WEB-PASSWORD": "12345",
+    "DEFAULT_COLOR": "00FF00",
+    "SYSLOG-SERVER-IP": "127.0.0.1"
+}

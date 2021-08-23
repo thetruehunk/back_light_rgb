@@ -1,0 +1,74 @@
+{% args config %}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+                * {
+                        box-sizing: border-box;
+                        font-family: arial, sans-serif;
+                        font-size: 16px;
+                        line-height: 1.45;
+                        text-align: center;
+                }
+
+                body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                }
+
+                h3 {
+                        font-size: 28px;
+                        color: #222;
+                }
+
+                .form_wr {
+                        background: #eee;
+                        border-radius: 20px;
+                        padding: 30px;
+                }
+
+                input {
+                        padding: 2px 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        height: 35px;
+                        width: 50px;
+                        text-align: left;
+                }
+
+                input[type=submit] {
+                        background-color: #4CAF50;
+                        border: none;
+                        color: white;
+                        cursor: pointer;
+                        padding: 5px 35px;
+                        height: 36px;
+                        width: auto;
+                }
+
+                label {
+                        width: 150px;
+                        margin-right: 20px;
+                        text-align: left;
+                }
+        </style>
+
+        <title>Settings</title>
+</head>
+        <body>
+                <div class="form_wr">
+                        <div class="row">
+                                <a href="/config"> [config]</a>
+                                <h3>RGB LED</h3>
+                                <form action="/set_color">
+                                        <label for="favcolor">Select your favorite color:</label>
+                                        <input type="color" id="favcolor" name="favcolor" value={{config['DEFAULT_COLOR']}}><br><br>
+                                        <input type="submit" value="Submit">
+                                </form>
+                        </div> 
+                </div>
+        </body>
+</html>
+
