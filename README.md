@@ -1,6 +1,7 @@
 # back_light_rgb
 
 ![](https://github.com/thetruehunk/back_light_rgb/blob/master/demo.gif)
+
 Это реализация контроллера управления светодиодной RGB
 лентой на базе ESP32/ESP8266 и MicroPython.
 В основе лежит framework Picoweb от Paul Sokolovsky
