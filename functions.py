@@ -32,6 +32,12 @@ def save_config(config, config_file):
      pass
 
 
+async def feed_watchdog(wdt):
+    while True:
+        wdt.feed()
+        await asyncio.sleep(1)
+
+
 async def memory_state(syslog):
     while True:
         free = gc.mem_free()

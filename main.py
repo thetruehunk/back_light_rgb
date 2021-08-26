@@ -1,10 +1,11 @@
 import gc
-from machine import Pin
+from machine import Pin, WDT
 import picoweb
 from neopixel import NeoPixel
 import usyslog
 import uasyncio as asyncio
 from functions import (load_config,
+                       feed_watchdog,
                        memory_state,
                        set_config_handler,
                        set_color,
@@ -19,6 +20,9 @@ syslog = usyslog.UDPClient(ip=config["SYSLOG-SERVER-IP"])
 app = picoweb.WebApp(__name__)
 
 np = NeoPixel(Pin(4), 60)
+
+wdt = WDT()
+wdt.feed()
 
 set_color(np, config["DEFAULT_COLOR"])
 
@@ -66,6 +70,7 @@ def set_color(req, resp):
         pass
 
 loop = asyncio.get_event_loop()
+loop.create_task(feed_watchdog(wdt))
 loop.create_task(memory_state(syslog))
 
 app.run(debug=1, host="0.0.0.0", port=80)
