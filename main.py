@@ -11,7 +11,7 @@ from functions import (load_config,
                        set_color,
                        set_color_handler,
                        require_auth)
-
+from wireless import check_connection
 
 config = load_config("config.json")
 
@@ -70,8 +70,9 @@ def set_color(req, resp):
         pass
 
 loop = asyncio.get_event_loop()
+loop.create_task(check_connection())
 loop.create_task(feed_watchdog(wdt))
 loop.create_task(memory_state(syslog))
 
-app.run(debug=1, host="0.0.0.0", port=80)
+app.run(debug=True, host="0.0.0.0", port=80)
 
